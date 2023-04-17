@@ -1,11 +1,116 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 :root {
-  --clr-Purple: hsl(259, 100%, 65%);
+  --clr-purple: hsl(259, 100%, 65%);
   --clr-light-red: hsl(0, 100%, 67%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-off-white: hsl(0, 0%, 94%);
   --clr-light-grey: hsl(0, 0%, 86%);
   --clr-smokey-grey: hsl(0, 1%, 44%);
   --clr-off-black: hsl(0, 0%, 8%);
+}
+
+html {
+  min-width: 375px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: var(--clr-off-white);
+}
+
+.calculator {
+  width: min(85%, 850px);
+  padding: 1.5rem 1rem;
+  margin-inline: auto;
+  margin-top: 5rem;
+  border-radius: 20px;
+  background: var(--clr-white);
+}
+
+@media (min-width: 650px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .calculator {
+    padding: 2.5rem 2rem;
+    margin-top: 0;
+  }
+}
+
+.inputs {
+  display: flex;
+  gap: 1rem;
+}
+
+.input-group {
+  width: 90px;
+}
+
+.input-group.error {
+  --error: var(--clr-light-red);
+
+  position: relative;
+}
+
+.input-group input {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  font-weight: 700;
+  width: 100%;
+  height: 2.344em;
+  padding-inline: 0.666666em;
+  border-radius: 5px;
+  border: 1px solid var(--error, var(--clr-light-grey));
+  cursor: pointer;
+}
+
+.input-group input:focus {
+  outline: 1px solid var(--clr-purple);
+  border-color: transparent;
+  caret-color: var(--clr-purple);
+}
+
+.input-group label {
+  font-size: 0.76em;
+  text-transform: uppercase;
+  letter-spacing: 0.25ch;
+  color: var(--error, var(--clr-smokey-grey));
+  cursor: pointer;
+}
+
+.input-group .error-message {
+  position: absolute;
+  display: none;
+  font-size: 0.7em;
+  font-style: italic;
+  margin-top: 0.4em;
+  color: var(--error);
+}
+
+.input-group.error .error-message {
+  display: inline-block;
+}
+
+@media (min-width: 650px) {
+  .inputs {
+    gap: 2.2rem;
+  }
+
+  .input-group {
+    font-size: 25px;
+    width: 180px;
+  }
 }
