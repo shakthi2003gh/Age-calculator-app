@@ -140,7 +140,12 @@ body {
   border-radius: 100%;
   background-color: var(--clr-purple);
   transform: translate(-50%, -50%);
+  transition: background-color 0.15s ease-in;
   cursor: pointer;
+}
+
+.divider button:hover {
+  background-color: var(--clr-off-black);
 }
 
 .divider img {
